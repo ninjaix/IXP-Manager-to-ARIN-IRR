@@ -1,0 +1,13 @@
+# version 1
+#  $1 is market  $2 is source vlan $3 is protocol 
+#  change NINJA-IX to your IX name
+####################################################################### 
+echo "<?php \$scrproto" = $3 " ?> " >out1
+echo "<?php \$scrvlan = \"$2\" ?>" >> out1
+fl=$(echo "$1" | awk '{print tolower($0)}')
+fu=$(echo "$1" | awk '{print toupper($0)}')
+echo "<?php \$scrmarket = \"$fu\" ?>" >> out1
+cat out1 base.foil.php > ../"$fl"ipv$3.foil.php
+php /srv/ixpmanager/artisan rir:generate-object "$fl"ipv$3 > out1
+awk NF out1 |  awk '!a[$0]++' > output/AS-NINJA-IX-$fu-IPV$3
+#
