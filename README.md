@@ -7,7 +7,7 @@ This will create 4 AS-Sets from the IXP Manger for each VLAN.
 - IPv4 Route Server Clients
 - IPv6 Route Server Clients
 - All Route Server Clients
-- All Participants on a VLAN
+- All Participants on a VLAN (not yet working)
 
 ## Enties in the AS-Set IX IXP-Manager must start as either AS- or AS##### (Numeric).  Using a Route Set will break the ARIN API
 
